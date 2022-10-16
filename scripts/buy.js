@@ -74,6 +74,17 @@ contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
   }
 })
 
+//Get the latest value.
+contractDefined_JS.methods.Wti40Milliliters().call((err, isPumpFilledResponse) => {
+  if(isPumpFilledResponse === undefined){
+    document.getElementById("getMaticWei40mL").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
+  }
+  else{
+    document.getElementById("getMaticWei40mL").innerHTML = Number( ( ( (11*isPumpFilledResponse)/10)/1000000000000000000).toFixed(8) );
+
+  }
+})
+
 // MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
 const buyOilButton = document.querySelector('.buyOilButton');
 buyOilButton.addEventListener('click', () => {
