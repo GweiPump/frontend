@@ -124,3 +124,27 @@ buyOilButton.addEventListener('click', () => {
 
 
 });
+
+// MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
+const requestRandomValueVRFv2Button = document.querySelector('.requestRandomValueVRFv2Button');
+requestRandomValueVRFv2Button.addEventListener('click', () => {
+  checkAddressMissingMetamask()
+  requestRandomValueVRFv2()
+
+  async function requestRandomValueVRFv2() {
+    ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: accounts[0],
+          to: vockTailsAddress,
+          data: deployedVockTails.methods.requestRandomWords().encodeABI(),
+        },
+      ],
+    })
+    .then((txHash) => console.log(txHash))
+    .catch((error) => console.error);
+  }
+
+
+});
