@@ -13,14 +13,35 @@
 </head>
 <body style="background-color:black;">
 
-<div style="min-height: 5vh"></div>
+  <div style="min-height: 5vh"></div>
 
   <div class="container">
-    <div style="min-height: 50vh">
+    <div style="min-height: 30vh">
     <div class="row">
       <div class="col text-center">
-        <p style="color:white">This is a sample owner page.</p>
+        <button class="btn btn-outline-light" id=enableEthereumButton></button>
       </div>
+    </div>
+   </div>
+  </div>
+
+  <div class="container">
+    <div style="min-height: 10vh">
+    <div class="row">
+      <div class="col text-center">
+        <button class="closePumpButton btn btn-outline-danger">Off</button>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div style="min-height: 10vh">
+    <div class="row">
+      <div class="col text-center">
+        <button class="openPumpButton btn btn-outline-success">On</button>
+      </div>
+    </div>
     </div>
   </div>
 
@@ -72,6 +93,11 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <!-- <script src="app.js"></script> -->
+  <!-- WEB3 IMPORT -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.5.0-rc.0/web3.min.js"></script>
+  <!-- Needed to run javascript main library -->
+  <script src="../scripts/owner.js"></script>
+
+
 </body>
 </html>
