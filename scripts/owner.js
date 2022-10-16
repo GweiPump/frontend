@@ -111,3 +111,27 @@ openPumpButton.addEventListener('click', () => {
 
 
 });
+
+// MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
+const manualUpKeepButton = document.querySelector('.manualUpKeepButton');
+manualUpKeepButton.addEventListener('click', () => {
+  checkAddressMissingMetamask()
+  manualUpKeep()
+
+  async function manualUpKeep() {
+    ethereum.request({
+      method: 'eth_sendTransaction',
+      params: [
+        {
+          from: accounts[0],
+          to: contractAddress_JS,
+          data: contractDefined_JS.methods.manualUpKeep().encodeABI(),
+        },
+      ],
+    })
+    .then((txHash) => console.log(txHash))
+    .catch((error) => console.error);
+  }
+
+
+});
