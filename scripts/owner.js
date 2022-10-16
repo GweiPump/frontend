@@ -64,6 +64,16 @@ contractDefined_JS.methods.WtiPriceOracle().call((err, balance) => {
   }
 })
 
+//Get the latest value.
+contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
+  if(isPumpFilledResponse === undefined){
+    document.getElementById("getPumpStatus").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
+  }
+  else{
+    document.getElementById("getPumpStatus").innerHTML =  isPumpFilledResponse
+  }
+})
+
 // MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
 const closePumpButton = document.querySelector('.closePumpButton');
 pumpOffButton.addEventListener('click', () => {

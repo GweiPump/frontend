@@ -55,12 +55,22 @@ const contractABI_JS = [{"inputs":[],"name":"msgValueTooSmall","type":"error"},{
 const contractDefined_JS = new web3.eth.Contract(contractABI_JS, contractAddress_JS)
 
 //Get the latest value.
-contractDefined_JS.methods.WtiPriceOracle().call((err, balance) => {
-  if(balance === undefined){
-    document.getElementById("getValueStateSmartContract").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
+contractDefined_JS.methods.WtiPriceOracle().call((err, wtiPriceOracleResponse) => {
+  if(wtiPriceOracleResponse === undefined){
+    document.getElementById("getWtiUsd").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
   else{
-    document.getElementById("getValueStateSmartContract").innerHTML =  "$" + (balance/100000000)
+    document.getElementById("getWtiUsd").innerHTML =  "$" + (wtiPriceOracleResponse/100000000)
+  }
+})
+
+//Get the latest value.
+contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
+  if(isPumpFilledResponse === undefined){
+    document.getElementById("getPumpStatus").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
+  }
+  else{
+    document.getElementById("getPumpStatus").innerHTML =  isPumpFilledResponse
   }
 })
 

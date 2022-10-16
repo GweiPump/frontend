@@ -8,17 +8,17 @@ https://gweipump.github.io/frontend/
 
 ## Progress
 
--Added buy button
+*Buy: Need to show MSG.VALUE before scaled and say you will scale 10% then refund to handle price swings in mempool
 
-*Need to add owner buttons
+*Buy: Need to add Chainlink VRFv2 request button
 
-*Need to add Chainlink node request button and add GweiPump address to send LINK to per request.
+*Owner: need to add Chainlink node request button and add GweiPump address to send LINK to per request.
 
-*Need to add Chainlink Keepers registery log
+*Owner: need to add Chainlink node request button and add GweiPump address to send LINK to per request.
 
-*Need to add Chainlink VRFv2 request button
+*Owner: need to add manualUpKeep button
 
-*Need to add Chainlink VRFv2 log registery log
+*Owner: need to add Chainlink node request button and add GweiPump address to send LINK to per request.
 
 *Need to upload to IPFS and Filecoin using Fleek after site looks complete
 
