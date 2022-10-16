@@ -16,4 +16,6 @@ https://gweipump.github.io/frontend/
 
 *Need to add Chainlink VRFv2 log registery log
 
+*Need to upload to IPFS and Filecoin using Fleek after site looks complete
+
 
