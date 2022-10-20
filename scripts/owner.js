@@ -61,9 +61,11 @@ contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
   }
   else{
     if(isPumpFilledResponse == "1"){
-      document.getElementById("getPumpStatus").innerHTML =  "Open (" + isPumpFilledResponse + ")"
+      document.getElementById("getPumpStatus").innerHTML = "Open (" + isPumpFilledResponse + ")"
+      document.getElementById("getPumpStatus").className = "text-success"
     }else{
-      document.getElementById("getPumpStatus").innerHTML =  "Closed (" + isPumpFilledResponse + ")"
+      document.getElementById("getPumpStatus").innerHTML = "Closed (" + isPumpFilledResponse + ")"
+      document.getElementById("getPumpStatus").className = "text-danger"
     }
   }
 })
