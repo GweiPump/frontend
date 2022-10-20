@@ -74,7 +74,11 @@ contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
     document.getElementById("getPumpStatus").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
   else{
-    document.getElementById("getPumpStatus").innerHTML =  isPumpFilledResponse
+    if(isPumpFilledResponse == "1"){
+      document.getElementById("getPumpStatus").innerHTML =  "Open (" + isPumpFilledResponse + ")"
+    }else{
+      document.getElementById("getPumpStatus").innerHTML =  "Closed (" + isPumpFilledResponse + ")"
+    }
   }
 })
 
