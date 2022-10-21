@@ -1,16 +1,18 @@
 # frontend
 
-## Website link
+## Website
 
 Website to interact with contracts.
 
+GitHub pages:
+
 https://gweipump.github.io/frontend/
 
-## Progress
+IPFS and Filecoin hosted with Fleek:
 
-*Need to upload to IPFS and Filecoin using Fleek after site looks complete
+https://gweipump.on.fleek.co/
 
-## Test locally before updating site
+## Test locally before updating site with new changes
 
 Run locally for testing with:
 
