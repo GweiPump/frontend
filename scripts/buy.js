@@ -50,16 +50,16 @@ async function getAccount() {
 //Make Metamask the client side Web3 provider. Needed for tracking live events.
 const web3 = new Web3(window.ethereum)
 //Now build the contract with Web3.
-const contractAddress_JS = "0xdf6110fE578B98DEF32d5066fE3538a646C9A48B"
-const contractABI_JS = [{"inputs":[],"name":"msgValueTooSmall","type":"error"},{"inputs":[],"name":"notOwner","type":"error"},{"inputs":[],"name":"oraclePriceFeedZero","type":"error"},{"inputs":[],"name":"pumpNotFilled","type":"error"},{"inputs":[],"name":"upKeepNotNeeded","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkCancelled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkFulfilled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkRequested","type":"event"},{"anonymous":false,"inputs":[],"name":"oilBought","type":"event"},{"anonymous":false,"inputs":[],"name":"updateWti","type":"event"},{"inputs":[],"name":"buyOil40Milliliters","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"chainlinkNodeRequestWtiPrice","outputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"checkUpkeep","outputs":[{"internalType":"bool","name":"upkeepNeeded","type":"bool"},{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_requestId","type":"bytes32"},{"internalType":"uint256","name":"memoryWtiPriceOracle","type":"uint256"}],"name":"fulfill","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"manualUpKeep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"status","type":"uint256"}],"name":"ownerPumpFilledStatus","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"performUpkeep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"erc20LINK","outputs":[{"internalType":"contractERC20TokenContract","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeThreeThousandthPercent","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLatestMaticUsd","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLatestWtiMatic","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPumpFilled","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"lastWtiPriceCheckUnixTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Wti40Milliliters","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"WtiPriceOracle","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
-const contractDefined_JS = new web3.eth.Contract(contractABI_JS, contractAddress_JS)
+const gweiPumpAddress = "0xdf6110fE578B98DEF32d5066fE3538a646C9A48B"
+const gweiPumpABI = [{"inputs":[],"name":"msgValueTooSmall","type":"error"},{"inputs":[],"name":"notOwner","type":"error"},{"inputs":[],"name":"oraclePriceFeedZero","type":"error"},{"inputs":[],"name":"pumpNotFilled","type":"error"},{"inputs":[],"name":"upKeepNotNeeded","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkCancelled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkFulfilled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"ChainlinkRequested","type":"event"},{"anonymous":false,"inputs":[],"name":"oilBought","type":"event"},{"anonymous":false,"inputs":[],"name":"updateWti","type":"event"},{"inputs":[],"name":"buyOil40Milliliters","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"chainlinkNodeRequestWtiPrice","outputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"checkUpkeep","outputs":[{"internalType":"bool","name":"upkeepNeeded","type":"bool"},{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes32","name":"_requestId","type":"bytes32"},{"internalType":"uint256","name":"memoryWtiPriceOracle","type":"uint256"}],"name":"fulfill","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"manualUpKeep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"status","type":"uint256"}],"name":"ownerPumpFilledStatus","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"bytes","name":"","type":"bytes"}],"name":"performUpkeep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"erc20LINK","outputs":[{"internalType":"contractERC20TokenContract","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feeThreeThousandthPercent","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLatestMaticUsd","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLatestWtiMatic","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"isPumpFilled","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"lastWtiPriceCheckUnixTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"Wti40Milliliters","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"WtiPriceOracle","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
+const deployedGweiPump = new web3.eth.Contract(gweiPumpABI, gweiPumpAddress)
 
 const vockTailsAddress = "0xC14708B1faf3737602EA69b68C893beb58baB5a7"
 const vockTailsAbi =[{"inputs":[{"internalType":"address","name":"have","type":"address"},{"internalType":"address","name":"want","type":"address"}],"name":"OnlyCoordinatorCanFulfill","type":"error"},{"anonymous":false,"inputs":[],"name":"drinkVRF","type":"event"},{"inputs":[{"internalType":"uint256","name":"requestId","type":"uint256"},{"internalType":"uint256[]","name":"randomWords","type":"uint256[]"}],"name":"rawFulfillRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"requestRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"COORDINATOR","outputs":[{"internalType":"contractVRFCoordinatorV2Interface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"LINKTOKEN","outputs":[{"internalType":"contractLinkTokenInterface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"randomDrinkValue","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"requestId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
 const deployedVockTails = new web3.eth.Contract(vockTailsAbi, vockTailsAddress)
 
 //Get the latest value.
-contractDefined_JS.methods.WtiPriceOracle().call((err, wtiPriceOracleResponse) => {
+deployedGweiPump.methods.WtiPriceOracle().call((err, wtiPriceOracleResponse) => {
   if(wtiPriceOracleResponse === undefined){
     document.getElementById("getWtiUsd").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
@@ -69,7 +69,7 @@ contractDefined_JS.methods.WtiPriceOracle().call((err, wtiPriceOracleResponse) =
 })
 
 //Get the latest value.
-contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
+deployedGweiPump.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
   if(isPumpFilledResponse === undefined){
     document.getElementById("getPumpStatus").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
@@ -85,7 +85,7 @@ contractDefined_JS.methods.isPumpFilled().call((err, isPumpFilledResponse) => {
 })
 
 //Get the latest value.
-contractDefined_JS.methods.Wti40Milliliters().call((err, isPumpFilledResponse) => {
+deployedGweiPump.methods.Wti40Milliliters().call((err, isPumpFilledResponse) => {
   if(isPumpFilledResponse === undefined){
     document.getElementById("getWei40mLmatic").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
@@ -112,21 +112,30 @@ buyOilButton.addEventListener('click', () => {
   buyOil()
 
   async function buyOil() {
-    let msgValue = await contractDefined_JS.methods.Wti40Milliliters().call()
+
+    let isPumpFilledResponse = await deployedGweiPump.methods.isPumpFilled().call();
+
+    if(isPumpFilledResponse != 1){
+      alert("PUMP IS CLOSED!")
+      return;
+    }
+
+    let msgValue = await deployedGweiPump.methods.Wti40Milliliters().call()
     ethereum.request({
       method: 'eth_sendTransaction',
       params: [
         {
           from: accounts[0],
-          to: contractAddress_JS,
-          data: contractDefined_JS.methods.buyOil40Milliliters().encodeABI(),
+          to: gweiPumpAddress,
+          data: deployedGweiPump.methods.buyOil40Milliliters().encodeABI(),
           value: web3.utils.toHex((11*msgValue)/10), //Scale up 10% to handle price changes in mempool.
         },
       ],
     })
     .then((txHash) => console.log(txHash))
     .catch((error) => console.error);
-  }
+
+}
 
 
 });
