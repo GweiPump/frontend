@@ -65,7 +65,7 @@ deployedGweiPump.methods.WtiPriceOracle().call((err, wtiPriceOracleResponse) => 
     document.getElementById("getWtiUsd").innerHTML =  "Install Metamask and select Mumbai Testnet to have a Web3 provider to read blockchain data."
   }
   else{
-    document.getElementById("getWtiUsd").innerHTML =  "$" + (wtiPriceOracleResponse/100000000)
+    document.getElementById("getWtiUsd").innerHTML =  "$" + (wtiPriceOracleResponse/100000000).toFixed(2)
   }
 })
 
