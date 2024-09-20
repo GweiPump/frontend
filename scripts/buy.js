@@ -54,9 +54,9 @@ const gweiPumpAddress = "0xF2d64F45777070630EB5420Dcab987f19a3D5956";
 const gweiPumpABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"EmptyArgs","type":"error"},{"inputs":[],"name":"EmptySource","type":"error"},{"inputs":[],"name":"NoInlineSecrets","type":"error"},{"inputs":[],"name":"OnlyRouterCanFulfill","type":"error"},{"inputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"name":"UnexpectedRequestID","type":"error"},{"inputs":[],"name":"etherNotSent","type":"error"},{"inputs":[],"name":"msgValueTooSmall","type":"error"},{"inputs":[],"name":"oraclePriceFeedZero","type":"error"},{"inputs":[],"name":"pumpNotFilled","type":"error"},{"inputs":[],"name":"upKeepNotNeeded","type":"error"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":true,"internalType":"address","name":"newOwner","type":"address"}],"name":"OwnershipTransferred","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"RequestFulfilled","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"id","type":"bytes32"}],"name":"RequestSent","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"bytes32","name":"requestId","type":"bytes32"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":false,"internalType":"bytes","name":"response","type":"bytes"},{"indexed":false,"internalType":"bytes","name":"err","type":"bytes"}],"name":"Response","type":"event"},{"anonymous":false,"inputs":[],"name":"oilBought","type":"event"},{"anonymous":false,"inputs":[],"name":"updateWti","type":"event"},{"inputs":[],"name":"MAX_BPS","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"SCALE_FEE","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"buyOil40Milliliters","outputs":[],"stateMutability":"payable","type":"function"},{"inputs":[],"name":"getLatestEthUsd","outputs":[{"internalType":"int256","name":"","type":"int256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getLatestWtiEth","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"getWti40Milliliters","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"},{"internalType":"bytes","name":"response","type":"bytes"},{"internalType":"bytes","name":"err","type":"bytes"}],"name":"handleOracleFulfillment","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"isPumpFilled","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"lastWtiPriceCheckUnixTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"owner","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"status","type":"uint256"}],"name":"ownerPumpFilledStatus","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"s_lastError","outputs":[{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"s_lastRequestId","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"s_lastResponse","outputs":[{"internalType":"bytes","name":"","type":"bytes"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint64","name":"subscriptionId","type":"uint64"},{"internalType":"string[]","name":"args","type":"string[]"}],"name":"sendRequest","outputs":[{"internalType":"bytes32","name":"requestId","type":"bytes32"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"newOwner","type":"address"}],"name":"transferOwnership","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"wtiPriceOracle","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}];
 const deployedGweiPump = new web3.eth.Contract(gweiPumpABI, gweiPumpAddress)
 
-const vockTailsAddress = "0xC14708B1faf3737602EA69b68C893beb58baB5a7"
-const vockTailsAbi =[{"inputs":[{"internalType":"address","name":"have","type":"address"},{"internalType":"address","name":"want","type":"address"}],"name":"OnlyCoordinatorCanFulfill","type":"error"},{"anonymous":false,"inputs":[],"name":"drinkVRF","type":"event"},{"inputs":[{"internalType":"uint256","name":"requestId","type":"uint256"},{"internalType":"uint256[]","name":"randomWords","type":"uint256[]"}],"name":"rawFulfillRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"requestRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"COORDINATOR","outputs":[{"internalType":"contractVRFCoordinatorV2Interface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"LINKTOKEN","outputs":[{"internalType":"contractLinkTokenInterface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"randomDrinkValue","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"requestId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
-const deployedVockTails = new web3.eth.Contract(vockTailsAbi, vockTailsAddress)
+// const vockTailsAddress = "0xC14708B1faf3737602EA69b68C893beb58baB5a7"
+// const vockTailsAbi =[{"inputs":[{"internalType":"address","name":"have","type":"address"},{"internalType":"address","name":"want","type":"address"}],"name":"OnlyCoordinatorCanFulfill","type":"error"},{"anonymous":false,"inputs":[],"name":"drinkVRF","type":"event"},{"inputs":[{"internalType":"uint256","name":"requestId","type":"uint256"},{"internalType":"uint256[]","name":"randomWords","type":"uint256[]"}],"name":"rawFulfillRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"requestRandomWords","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[],"name":"COORDINATOR","outputs":[{"internalType":"contractVRFCoordinatorV2Interface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"LINKTOKEN","outputs":[{"internalType":"contractLinkTokenInterface","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"randomDrinkValue","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"requestId","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
+// const deployedVockTails = new web3.eth.Contract(vockTailsAbi, vockTailsAddress)
 
 //Get the latest value.
 deployedGweiPump.methods.wtiPriceOracle().call((err, wtiPriceOracleResponse) => {
@@ -96,15 +96,15 @@ deployedGweiPump.methods.getWti40Milliliters().call((err, isPumpFilledResponse) 
   }
 })
 
-//Get the latest value.
-deployedVockTails.methods.randomDrinkValue().call((err, randomValueResponse) => {
-  if(randomValueResponse === undefined){
-    document.getElementById("randomValueVRFv2").innerHTML =  "Install Metamask and select Base Sepolia Testnet to have a Web3 provider to read blockchain data."
-  }
-  else{
-    document.getElementById("randomValueVRFv2").innerHTML = BigInt(randomValueResponse);
-  }
-})
+// //Get the latest value.
+// deployedVockTails.methods.randomDrinkValue().call((err, randomValueResponse) => {
+//   if(randomValueResponse === undefined){
+//     document.getElementById("randomValueVRFv2").innerHTML =  "Install Metamask and select Base Sepolia Testnet to have a Web3 provider to read blockchain data."
+//   }
+//   else{
+//     document.getElementById("randomValueVRFv2").innerHTML = BigInt(randomValueResponse);
+//   }
+// })
 
 // MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
 const buyOilButton = document.querySelector('.buyOilButton');
@@ -121,7 +121,8 @@ buyOilButton.addEventListener('click', () => {
       return;
     }
 
-    let msgValue = await deployedGweiPump.methods.Wti40Milliliters().call()
+    let msgValueRaw = await deployedGweiPump.methods.getWti40Milliliters().call()
+    let msgValueScaledMempool= (11*msgValueRaw)/10;
     ethereum.request({
       method: 'eth_sendTransaction',
       params: [
@@ -129,7 +130,7 @@ buyOilButton.addEventListener('click', () => {
           from: accounts[0],
           to: gweiPumpAddress,
           data: deployedGweiPump.methods.buyOil40Milliliters().encodeABI(),
-          value: web3.utils.toHex((11*msgValue)/10), //Scale up 10% to handle price changes in mempool.
+          value: web3.utils.toHex(Math.floor(msgValueScaledMempool)), //Scale up 10% to handle price changes in mempool.
         },
       ],
     })
@@ -141,26 +142,26 @@ buyOilButton.addEventListener('click', () => {
 
 });
 
-// MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
-const requestRandomValueVRFv2Button = document.querySelector('.requestRandomValueVRFv2Button');
-requestRandomValueVRFv2Button.addEventListener('click', () => {
-  checkAddressMissingMetamask()
-  requestRandomValueVRFv2()
+// // MODIFY CONTRACT STATE WITH SET FUNCTION WITH PREDEFINED DATA FROM WEB3.JS
+// const requestRandomValueVRFv2Button = document.querySelector('.requestRandomValueVRFv2Button');
+// requestRandomValueVRFv2Button.addEventListener('click', () => {
+//   checkAddressMissingMetamask()
+//   requestRandomValueVRFv2()
 
-  async function requestRandomValueVRFv2() {
-    ethereum.request({
-      method: 'eth_sendTransaction',
-      params: [
-        {
-          from: accounts[0],
-          to: vockTailsAddress,
-          data: deployedVockTails.methods.requestRandomWords().encodeABI(),
-        },
-      ],
-    })
-    .then((txHash) => console.log(txHash))
-    .catch((error) => console.error);
-  }
+//   async function requestRandomValueVRFv2() {
+//     ethereum.request({
+//       method: 'eth_sendTransaction',
+//       params: [
+//         {
+//           from: accounts[0],
+//           to: vockTailsAddress,
+//           data: deployedVockTails.methods.requestRandomWords().encodeABI(),
+//         },
+//       ],
+//     })
+//     .then((txHash) => console.log(txHash))
+//     .catch((error) => console.error);
+//   }
 
 
-});
+// });
